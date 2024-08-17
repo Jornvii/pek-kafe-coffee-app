@@ -55,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                 // Name
                 Center(
                   child: Text(
-                    'Eric Schmidt',
+                    'Eric Smith Zin-ii',
                     style: textTheme.headlineMedium?.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class ProfilePage extends StatelessWidget {
                 // Description
                 Center(
                   child: Text(
-                    'Snowboarder, Superhero, and writer.\nSometimes I work at Google as Executive Chairman',
+                    'Programmer.\n I work at Google as Executive Chairman',
                     textAlign: TextAlign.center,
                     style: textTheme.bodyLarge?.copyWith(
                       fontSize: 16,
@@ -91,29 +91,37 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 // Recent Orders List
-                ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    _buildOrderItem(
-                      'Cappuccino',
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
-                      '\$4.99',
-                      colorScheme,
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: colorScheme.onSurface.withOpacity(0.2),
+                      width: 1.5,
                     ),
-                    _buildOrderItem(
-                      'Latte',
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
-                      '\$3.99',
-                      colorScheme,
-                    ),
-                    _buildOrderItem(
-                      'Espresso',
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
-                      '\$2.99',
-                      colorScheme,
-                    ),
-                  ],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      _buildOrderItem(
+                        'Cappuccino',
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
+                        '\$4.99',
+                        colorScheme,
+                      ),
+                      _buildOrderItem(
+                        'Latte',
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
+                        '\$3.99',
+                        colorScheme,
+                      ),
+                      
+                    ],
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [Text("See all")],),
                 ),
                 const SizedBox(height: 30),
 
@@ -153,7 +161,7 @@ class ProfilePage extends StatelessWidget {
       String title, String imageUrl, String price, ColorScheme colorScheme) {
     return Card(
       color: colorScheme.surface,
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 4.0), // Adjust margin for spacing
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),

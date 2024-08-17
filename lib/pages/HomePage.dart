@@ -1,8 +1,9 @@
 import 'package:coffee_order_app/models/drinks.dart';
+import 'package:coffee_order_app/widgets/DrinkCard.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -10,9 +11,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String selectedCategory = 'Coffee';
+  String searchQuery = '';
 
   List<Map<String, String>> get filteredDrinks {
-    return drinks.where((drink) => drink['category'] == selectedCategory).toList();
+    return drinks
+        .where((drink) =>
+            drink['title']!.toLowerCase().contains(searchQuery.toLowerCase()))
+        .where((drink) =>
+            selectedCategory == 'All' || drink['category'] == selectedCategory)
+        .toList();
   }
 
   @override
@@ -54,6 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               TextField(
+                onChanged: (value) {
+                  setState(() {
+                    searchQuery = value;
+                  });
+                },
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: colorScheme.surfaceContainerHighest,
@@ -62,10 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: colorScheme.onSurfaceVariant,
                   ),
                   hintText: 'Search...',
-                  hintStyle: TextStyle(
+                  hintStyle: textTheme.bodyLarge?.copyWith(
                     color: colorScheme.onSurfaceVariant.withOpacity(0.6),
                     fontStyle: FontStyle.italic,
-                    fontSize: 16.0,
                   ),
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 12.0,
@@ -90,9 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                style: TextStyle(
+                style: textTheme.bodyLarge?.copyWith(
                   color: colorScheme.onSurface,
-                  fontSize: 16.0,
                 ),
                 cursorColor: colorScheme.primary,
                 autofocus: true,
@@ -103,6 +113,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
+                    CoffeeCategory(
+                      title: 'All',
+                      isSelected: selectedCategory == 'All',
+                      onTap: () => setState(() => selectedCategory = 'All'),
+                    ),
                     CoffeeCategory(
                       title: 'Coffee',
                       isSelected: selectedCategory == 'Coffee',
@@ -116,12 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     CoffeeCategory(
                       title: 'Fruit Juices',
                       isSelected: selectedCategory == 'Fruit Juices',
-                      onTap: () => setState(() => selectedCategory = 'Fruit Juices'),
+                      onTap: () =>
+                          setState(() => selectedCategory = 'Fruit Juices'),
                     ),
                     CoffeeCategory(
                       title: 'Mix Coffee',
                       isSelected: selectedCategory == 'Mix Coffee',
-                      onTap: () => setState(() => selectedCategory = 'Mix Coffee'),
+                      onTap: () =>
+                          setState(() => selectedCategory = 'Mix Coffee'),
                     ),
                     CoffeeCategory(
                       title: 'Drinks',
@@ -146,8 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     return DrinkCard(
                       title: drink['title']!,
                       price: drink['price']!,
-                      // detail: drink['detail']!,
                       imageUrl: drink['imageUrl']!,
+                      detail: drink['detail']!, // Pass detail to DrinkCard
                     );
                   },
                 ),
@@ -185,91 +202,27 @@ class CoffeeCategory extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: isSelected ? colorScheme.primary : colorScheme.surfaceContainerHighest,
+            color: isSelected
+                ? colorScheme.primary
+                : colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-              color: isSelected ? colorScheme.primary : colorScheme.onSurfaceVariant.withOpacity(0.2),
+              color: isSelected
+                  ? colorScheme.primary
+                  : colorScheme.onSurfaceVariant.withOpacity(0.2),
               width: 1.5,
             ),
           ),
           child: Text(
             title,
             style: TextStyle(
-              color: isSelected ? colorScheme.onPrimary : colorScheme.onSurfaceVariant,
+              color: isSelected
+                  ? colorScheme.onPrimary
+                  : colorScheme.onSurfaceVariant,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class DrinkCard extends StatelessWidget {
-  final String title;
-  final String price;
-  // final String detail;
-  final String imageUrl;
-
-  const DrinkCard({
-    super.key,
-    required this.title,
-    required this.price,
-    // required this.detail,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              price,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
-            ),
-          ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-          //   child: Text(
-          //     detail,
-          //     style: TextStyle(
-          //       fontSize: 12,
-          //       color: Colors.grey[800],
-          //     ),
-          //   ),
-          // ),
-        ],
       ),
     );
   }
