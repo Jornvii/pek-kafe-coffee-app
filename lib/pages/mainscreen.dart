@@ -1,7 +1,9 @@
 import 'package:coffee_order_app/custom/theme.dart';
 import 'package:coffee_order_app/main.dart';
+import 'package:coffee_order_app/models/CartItem.dart';
 import 'package:coffee_order_app/pages/HomePage.dart';
 import 'package:coffee_order_app/pages/Profile_Nav.dart';
+import 'package:coffee_order_app/pages/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,24 +30,46 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       HomeScreen(), 
-      CartPage(),
+      CartScreen(),
       const ProfileScreen(),
     ];
 
     return Scaffold(
-      
-      body: _pages[_selectedIndex], 
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Consumer<CartModel>(
+              builder: (context, cart, child) {
+                return Stack(
+                  children: [
+                    const Icon(Icons.shopping_cart),
+                    if (cart.itemCount > 0)
+                      Positioned(
+                        right: 0,
+                        child: CircleAvatar(
+                          radius: 8,
+                          backgroundColor: Colors.red,
+                          child: Text(
+                            cart.itemCount.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              },
+            ),
             label: 'Cart',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
@@ -57,16 +81,6 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
       ),
-    );
-  }
-}
-
-class CartPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
-      body: const Center(child: Text('Cart Page Content')),
     );
   }
 }

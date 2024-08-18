@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 final lightTheme = ThemeData(
@@ -12,7 +10,9 @@ final lightTheme = ThemeData(
   colorScheme: const ColorScheme.light(
     primary: Colors.orange,
     secondary: Colors.orange,
-  ).copyWith(surface: Colors.white),
+    surface: Colors.white,
+    onSurface: Colors.black,
+  ),
 );
 
 final darkTheme = ThemeData(
@@ -25,5 +25,7 @@ final darkTheme = ThemeData(
   colorScheme: const ColorScheme.dark(
     primary: Colors.orangeAccent,
     secondary: Colors.orange,
-  ).copyWith(surface: Colors.black),
+    surface: Colors.black,
+    onSurface: Colors.white,
+  ),
 );

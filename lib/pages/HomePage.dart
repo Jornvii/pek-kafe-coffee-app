@@ -68,14 +68,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: colorScheme.surfaceContainerHighest,
+                  fillColor: colorScheme.surface,
                   prefixIcon: Icon(
                     Icons.search,
-                    color: colorScheme.onSurfaceVariant,
+                    color: colorScheme.onSurface.withOpacity(0.6),
                   ),
                   hintText: 'Search...',
                   hintStyle: textTheme.bodyLarge?.copyWith(
-                    color: colorScheme.onSurfaceVariant.withOpacity(0.6),
+                    color: colorScheme.onSurface.withOpacity(0.6),
                     fontStyle: FontStyle.italic,
                   ),
                   contentPadding: const EdgeInsets.symmetric(
@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide(
-                      color: colorScheme.onSurfaceVariant.withOpacity(0.2),
+                      color: colorScheme.onSurface.withOpacity(0.2),
                       width: 1.5,
                     ),
                   ),
@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: drink['title']!,
                       price: drink['price']!,
                       imageUrl: drink['imageUrl']!,
-                      detail: drink['detail']!, // Pass detail to DrinkCard
+                      detail: drink['detail']!,
                     );
                   },
                 ),
@@ -202,14 +202,12 @@ class CoffeeCategory extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: isSelected
-                ? colorScheme.primary
-                : colorScheme.surfaceContainerHighest,
+            color: isSelected ? colorScheme.primary : colorScheme.surface,
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               color: isSelected
                   ? colorScheme.primary
-                  : colorScheme.onSurfaceVariant.withOpacity(0.2),
+                  : colorScheme.onSurface.withOpacity(0.2),
               width: 1.5,
             ),
           ),
