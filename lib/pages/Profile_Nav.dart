@@ -19,7 +19,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
-    // Set initial dark mode state based on themeNotifier
   }
 
   void _toggleTheme() {

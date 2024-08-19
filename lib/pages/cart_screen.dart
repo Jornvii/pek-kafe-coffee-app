@@ -10,16 +10,44 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartModel>(context);
 
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Cart'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Your Order',
+              style: theme.textTheme.titleLarge?.copyWith(
+                color: colorScheme.onPrimary,
+              ),),
+            Column(
+              children: [
+                Image.network(
+                  'https://cdn.bio.link/uploads/profile_pictures/2021-10-05/jXxjMGd03YlgKnrAU6zDQlV78F6tAo1o.png',
+                  height: 30.0, // Adjust the height as needed
+                ),
+                const SizedBox(width: 10.0),
+                Text(
+                  'Pek Kafé',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        backgroundColor: colorScheme.primary,
       ),
       body: cart.items.isEmpty
           ? Center(
               child: Text(
-                'Your cart is empty!',
-                style: Theme.of(context).textTheme.titleLarge,
+                'You haven\'t ordered yet!',
+                style: theme.textTheme.titleLarge,
               ),
             )
           : ListView.builder(
@@ -27,7 +55,8 @@ class CartScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = cart.items[index];
                 return Card(
-                  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   elevation: 4,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -56,11 +85,11 @@ class CartScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Size: ${item.size}',
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: theme.textTheme.bodyMedium,
                         ),
                         Text(
-                          ' ${item.price}',
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          '\$${item.price}',
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -104,15 +133,13 @@ class CartScreen extends StatelessWidget {
               : () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PaymentScreen()),
-                  ).then((_) {
-                    Provider.of<CartModel>(context, listen: false).notifyListeners();
-                  });
+                    MaterialPageRoute(
+                        builder: (context) => const PaymentScreen()),
+                  );
                 },
           style: ElevatedButton.styleFrom(
-            backgroundColor: cart.items.isEmpty
-                ? Colors.grey
-                : Theme.of(context).colorScheme.primary,
+            backgroundColor:
+                cart.items.isEmpty ? Colors.grey : colorScheme.primary,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -120,8 +147,8 @@ class CartScreen extends StatelessWidget {
           ),
           child: Text(
             'Checkout',
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimary,
+            style: theme.textTheme.titleLarge?.copyWith(
+              color: colorScheme.onPrimary,
             ),
           ),
         ),

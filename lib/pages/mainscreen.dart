@@ -1,5 +1,3 @@
-import 'package:coffee_order_app/custom/theme.dart';
-import 'package:coffee_order_app/main.dart';
 import 'package:coffee_order_app/models/CartItem.dart';
 import 'package:coffee_order_app/pages/HomePage.dart';
 import 'package:coffee_order_app/pages/Profile_Nav.dart';
@@ -16,21 +14,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  bool _isDarkMode = false;
 
-  void _toggleTheme() {
-    setState(() {
-      _isDarkMode = !_isDarkMode;
-    });
-    final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
-    themeNotifier.getTheme() == lightTheme ? themeNotifier.setDarkMode() : themeNotifier.setLightMode();
-  }
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
-      HomeScreen(), 
-      CartScreen(),
+      const HomeScreen(), 
+      const CartScreen(),
       const ProfileScreen(),
     ];
 
