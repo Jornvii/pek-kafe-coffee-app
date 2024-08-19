@@ -6,7 +6,7 @@ class ModernCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback onTap;
 
-  const ModernCard({
+  const ModernCard({super.key, 
     required this.title,
     required this.description,
     required this.imageUrl,
@@ -29,7 +29,7 @@ class ModernCard extends StatelessWidget {
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
-                height: 150, // Adjusted height for the image
+                height: 150, 
                 width: double.infinity,
               ),
             ),
@@ -51,7 +51,7 @@ class ModernCard extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.grey[600],
                     ),
-                    maxLines: 3, // Limit the number of lines for description
+                    maxLines: 3, 
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],

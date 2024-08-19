@@ -47,7 +47,7 @@ class CartScreen extends StatelessWidget {
                     ),
                     title: Text(
                       item.title,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
@@ -67,7 +67,7 @@ class CartScreen extends StatelessWidget {
                       ],
                     ),
                     trailing: SizedBox(
-                      width: 120, // Adjust width if needed
+                      width: 120,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -97,30 +97,35 @@ class CartScreen extends StatelessWidget {
               },
             ),
       bottomNavigationBar: Padding(
-  padding: const EdgeInsets.all(16.0),
-  child: ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) =>  PaymentScreen()),
-      );
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: cart.items.isEmpty
+              ? null
+              : () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PaymentScreen()),
+                  ).then((_) {
+                    Provider.of<CartModel>(context, listen: false).notifyListeners();
+                  });
+                },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: cart.items.isEmpty
+                ? Colors.grey
+                : Theme.of(context).colorScheme.primary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+          ),
+          child: Text(
+            'Checkout',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+          ),
+        ),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-    ),
-    child: Text(
-      'Checkout',
-      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-        color: Theme.of(context).colorScheme.onPrimary,
-      ),
-    ),
-  ),
-),
-
     );
   }
 }

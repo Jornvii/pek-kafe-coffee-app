@@ -41,11 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 60,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                padding: const EdgeInsets.only(left: 6.0, top: 10.0),
                 child: Text(
                   'Pek Kafé',
                   style: textTheme.headlineSmall?.copyWith(
-                    fontSize: 10,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: colorScheme.onSurface,
                   ),

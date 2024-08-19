@@ -38,6 +38,10 @@ class DrinkCard extends StatelessWidget {
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
+          side: BorderSide(
+            color: colorScheme.primary, 
+            width: 0.5, 
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
