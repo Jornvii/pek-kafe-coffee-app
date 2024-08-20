@@ -30,6 +30,7 @@ class CustomAlertDialog extends StatelessWidget {
               color: Theme.of(context).colorScheme.surface,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.grey,width: 1),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),

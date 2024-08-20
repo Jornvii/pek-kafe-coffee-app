@@ -185,11 +185,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ],
           ),
           child: Center(
-            child: Image.network(
-              'https://pngimg.com/d/qr_code_PNG33.png',
-              width: 150,
-              height: 150,
-              fit: BoxFit.contain,
+            child: Container(
+              color: Colors.grey,
+              child: Image.asset(
+                'assets/images/qrcode.png',
+                width: 250,
+                height: 250,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),

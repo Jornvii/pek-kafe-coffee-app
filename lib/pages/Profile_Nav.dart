@@ -44,8 +44,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15),
-                    child: Image.network(
-                      'https://cdn.bio.link/uploads/profile_pictures/2021-10-05/jXxjMGd03YlgKnrAU6zDQlV78F6tAo1o.png',
+                    child: Image.asset(
+                      'assets/images/logo.png',
                       height: 80.0,
                     ),
                   ),
@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     horizontal: 20.0, vertical: 16.0),
                 children: [
                   _buildSettingsTile(
-                    icon: Icons.person,
+                    icon: Icons.account_circle,
                     title: 'Profile',
                     onTap: () {
                       Navigator.push(
@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
                   _buildSettingsTile(
-                    icon: Icons.nightlight_round,
+                    icon: Icons.bedtime,
                     title: 'Dark Mode',
                     trailing: IconButton(
                       icon: Icon(
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   _buildSettingsTile(
-                    icon: Icons.policy,
+                    icon: Icons.local_police,
                     title: 'Policy',
                     onTap: () {
                       Navigator.push(

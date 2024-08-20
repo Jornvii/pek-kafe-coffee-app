@@ -5,7 +5,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.50',
     'detail': 'Strong and bold espresso shot with rich flavor.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   {
@@ -13,7 +13,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.00',
     'detail': 'Smooth latte with a hint of sweetness and creamy foam.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   {
@@ -21,7 +21,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.50',
     'detail': 'Classic cappuccino with a perfect balance of espresso and foam.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   {
@@ -29,7 +29,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.00',
     'detail': 'Americano with a rich, smooth taste for coffee lovers.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   {
@@ -37,7 +37,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.75',
     'detail': 'Delicious mocha with a blend of chocolate and espresso.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   {
@@ -45,7 +45,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.25',
     'detail': 'Rich and creamy flat white with velvety microfoam.',
     'imageUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBTFlfnurMl_XFbr5nFWtkwh3AxTrB8vVjA&s',
+        'assets/images/Americano.png',
     'category': 'Coffee',
   },
   // Tea
@@ -54,7 +54,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.50',
     'detail': 'Refreshing green tea with a light and calming flavor.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   {
@@ -62,7 +62,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.75',
     'detail': 'Spiced chai latte with a blend of black tea and aromatic spices.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   {
@@ -70,7 +70,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.75',
     'detail': 'Classic Earl Grey tea with a hint of bergamot citrus.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   {
@@ -78,7 +78,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.50',
     'detail': 'Creamy matcha latte with vibrant green tea flavor.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   {
@@ -86,7 +86,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.50',
     'detail': 'Cooling peppermint tea with a refreshing aroma.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   {
@@ -94,7 +94,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.50',
     'detail': 'Soothing chamomile tea perfect for relaxation.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2023/02/Spring23_Iced-Pure-Matcha-Latte-600x600.png',
+        'assets/images/tea.png',
     'category': 'Tea',
   },
   // Fruit Juices
@@ -103,7 +103,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.00',
     'detail': 'Freshly squeezed orange juice with a tangy taste.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   {
@@ -111,7 +111,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.75',
     'detail': 'Crisp and refreshing apple juice made from fresh apples.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   {
@@ -119,7 +119,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.50',
     'detail': 'Sweet and tropical mango juice with a rich flavor.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   {
@@ -127,7 +127,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.25',
     'detail': 'Tangy and sweet pineapple juice, a tropical delight.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   {
@@ -135,7 +135,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.80',
     'detail': 'Rich and fruity grape juice with natural sweetness.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   {
@@ -143,7 +143,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$2.50',
     'detail': 'Zesty lemonade with a perfect balance of sweet and sour.',
     'imageUrl':
-        'https://www.starbucks.co.th/stb-media/2021/04/ExclusiveICONonGreen_Item22.jpg',
+        'assets/images/fruit.jpg',
     'category': 'Fruit Juices',
   },
   // Mix Coffee
@@ -152,7 +152,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.75',
     'detail': 'Creamy caramel macchiato with layers of espresso and milk.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   {
@@ -160,7 +160,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.50',
     'detail': 'Smooth latte with a nutty hazelnut flavor.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   {
@@ -168,7 +168,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.50',
     'detail': 'Latte infused with the sweetness of vanilla.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   {
@@ -176,7 +176,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$5.00',
     'detail': 'Blended mocha frappe with chocolate and coffee.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   {
@@ -184,7 +184,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$5.50',
     'detail': 'Rich coffee with a splash of whiskey and cream.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   {
@@ -192,7 +192,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.75',
     'detail': 'Vanilla ice cream topped with a shot of espresso.',
     'imageUrl':
-        'https://www.starbucks.co.nz/content/menu/0680268001646124791.jpg?width=296',
+        'assets/images/mix.png',
     'category': 'Mix Coffee',
   },
   // Drinks
@@ -201,7 +201,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.00',
     'detail': 'Refreshing strawberry smoothie with creamy texture.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
   {
@@ -209,7 +209,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.25',
     'detail': 'Tropical mango smoothie with a burst of flavor.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
   {
@@ -217,7 +217,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.50',
     'detail': 'Berry smoothie with a mix of strawberries, blueberries, and raspberries.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
   {
@@ -225,7 +225,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.00',
     'detail': 'Sweet pineapple drink with a hint of coconut.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
   {
@@ -233,7 +233,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$3.50',
     'detail': 'Chilled iced tea with a splash of peach flavor.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
   {
@@ -241,7 +241,7 @@ const List<Map<String, String>> drinks = [
     'price': '\$4.00',
     'detail': 'Refreshing lemonade with a touch of matcha.',
     'imageUrl':
-        'https://stories.starbucks.com/uploads/2021/12/SBX20211202-HOL_BevsAroundWorld-PinkChamomileRelaxer.jpg',
+        'assets/images/Drinks.jpg',
     'category': 'Drinks',
   },
 ];

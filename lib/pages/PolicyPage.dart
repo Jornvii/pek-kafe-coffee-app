@@ -7,7 +7,7 @@ class PolicyPage extends StatelessWidget {
   Future<void> _launchEmail() async {
     final Uri emailLaunchUri = Uri(
       scheme: 'mailto',
-      path: 'support@example.com',
+      path: 'support@prkkafe.com',
       query: 'subject=Privacy Policy Inquiry', // add subject or body if needed
     );
 

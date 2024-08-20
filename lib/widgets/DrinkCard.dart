@@ -50,7 +50,7 @@ class DrinkCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                 child: imageUrl.isNotEmpty
-                    ? Image.network(
+                    ? Image.asset(
                         imageUrl,
                         fit: BoxFit.cover,
                         width: double.infinity,

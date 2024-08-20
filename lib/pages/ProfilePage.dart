@@ -22,7 +22,8 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.arrow_back, color: colorScheme.onBackground),
+                      icon: Icon(Icons.arrow_back,
+                          color: colorScheme.onBackground),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -35,27 +36,65 @@ class ProfilePage extends StatelessWidget {
                         color: colorScheme.onBackground,
                       ),
                     ),
-                    Icon(Icons.more_vert, color: colorScheme.onBackground),
+                    Icon(Icons.more_vert, color: colorScheme.onSurface),
                   ],
                 ),
                 const SizedBox(height: 30),
 
-                // Profile Image
                 Center(
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage: const NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWBJz3yXslUdTK_M6JhC_-cAnpp8muuh-AAYv4S-fyKA_wSH5a',
-                    ),
-                    backgroundColor: colorScheme.surfaceVariant,
+                  child: Stack(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 10,
+                              spreadRadius: 3,
+                            ),
+                          ],
+                        ),
+                        child: const CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage(
+                            'assets/images/pfpf.JPG',
+                          ),
+                          backgroundColor: Colors.transparent,
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: colorScheme.primary,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+
                 const SizedBox(height: 20),
 
                 // Name
                 Center(
                   child: Text(
-                    'Eric Smith Zin-ii',
+                    'Jii Vorn Zin',
                     style: textTheme.headlineMedium?.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -68,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                 // Description
                 Center(
                   child: Text(
-                    'Programmer.\n I work at Google as Executive Chairman',
+                    'Eater\n Sleeper and  Coder ',
                     textAlign: TextAlign.center,
                     style: textTheme.bodyLarge?.copyWith(
                       fontSize: 16,
@@ -113,7 +152,6 @@ class ProfilePage extends StatelessWidget {
                         '\$3.99',
                         colorScheme,
                       ),
-                      
                     ],
                   ),
                 ),
@@ -121,7 +159,8 @@ class ProfilePage extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Text("See all")],),
+                    children: [Text("See all")],
+                  ),
                 ),
                 const SizedBox(height: 30),
 
@@ -130,7 +169,8 @@ class ProfilePage extends StatelessWidget {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const EditProfilePage()),
+                        MaterialPageRoute(
+                            builder: (context) => const EditProfilePage()),
                       );
                     },
                     icon: Icon(Icons.edit, color: colorScheme.onPrimary),
@@ -140,8 +180,10 @@ class ProfilePage extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorScheme.primary,
-                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
-                      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 14),
+                      textStyle: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -161,7 +203,8 @@ class ProfilePage extends StatelessWidget {
       String title, String imageUrl, String price, ColorScheme colorScheme) {
     return Card(
       color: colorScheme.surface,
-      margin: const EdgeInsets.symmetric(vertical: 4.0), // Adjust margin for spacing
+      margin: const EdgeInsets.symmetric(
+          vertical: 4.0), // Adjust margin for spacing
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -169,7 +212,8 @@ class ProfilePage extends StatelessWidget {
         contentPadding: const EdgeInsets.all(12),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover),
+          child:
+              Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover),
         ),
         title: Text(
           title,

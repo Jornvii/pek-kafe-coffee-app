@@ -46,8 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(left: 10),
                       child: Row(
                         children: [
-                          Image.network(
-                            "https://cdn.bio.link/uploads/profile_pictures/2021-10-05/jXxjMGd03YlgKnrAU6zDQlV78F6tAo1o.png",
+                          Image.asset(
+                            "assets/images/logo.png",
                             width: 40,
                           ),
                           Padding(
@@ -76,11 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
+                // const SizedBox(height: 20),
                 Text(
                   'Welcome to Coffee Order!',
                   style: textTheme.titleLarge?.copyWith(
-                    fontSize: 18,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
