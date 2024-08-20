@@ -15,12 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  @override
-  void initState() {
-    super.initState();
-    final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
-  }
-
   void _toggleTheme() {
     final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
     themeNotifier.getTheme() == lightTheme
@@ -66,17 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 16.0),
                 children: [
-                  _buildSettingsTile(
-                    icon: Icons.account_circle,
-                    title: 'Profile',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfilePage()),
-                      );
-                    },
-                  ),
+                  _buildProfileTile(),
                   _buildSettingsTile(
                     icon: Icons.bedtime,
                     title: 'Dark Mode',
@@ -174,6 +158,99 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   )
                 ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProfileTile() {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfilePage()),
+          );
+        },
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              decoration: BoxDecoration(
+                color: colorScheme.surface,
+                borderRadius: BorderRadius.circular(12.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: colorScheme.shadow.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Container(
+                height: 60,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: colorScheme.surface,
+                  borderRadius: BorderRadius.circular(12.0),
+                  border: Border.all(
+                    color: colorScheme.outline,
+                    width: 1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: colorScheme.shadow.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(width: 15),
+                    const Icon(
+                      Icons.person,
+                      color: Colors.orange,
+                      size: 25,
+                    ),
+                    const SizedBox(width: 15),
+                    Text(
+                      'Profile',
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        color: colorScheme.onSurface,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 15,
+              right: 20,
+              child: Container(
+                padding: const EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                child: const CircleAvatar(
+                  radius: 40,
+                  backgroundImage: AssetImage('assets/images/pfpf.JPG'),
+                ),
               ),
             ),
           ],

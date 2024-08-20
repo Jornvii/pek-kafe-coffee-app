@@ -15,11 +15,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
-      const HomeScreen(), 
+      const HomeScreen(),
       const CartScreen(),
       const ProfileScreen(),
     ];

@@ -26,42 +26,41 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
   int selectedSugar = 0;
   int quantity = 1;
 
-void _addToCart() {
-  final cart = Provider.of<CartModel>(context, listen: false);
-  cart.addItem(
-    CartItem(
-      title: widget.title,
-      imageUrl: widget.imageUrl,
-      price: widget.price,
-      size: selectedSize,
-      sugarLevel: selectedSugar,
-      quantity: quantity,
-    ),
-  );
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Row(
-        children: [
-          // Icon(
-          //   Icons.shopping_cart_checkout,
-          //   color: Colors.white, 
-          // ),
-          SizedBox(width: 8), 
-          Text(
-            'Added to cart!',
-            style: TextStyle(
-              color: Colors.white, 
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
+  void _addToCart() {
+    final cart = Provider.of<CartModel>(context, listen: false);
+    cart.addItem(
+      CartItem(
+        title: widget.title,
+        imageUrl: widget.imageUrl,
+        price: widget.price,
+        size: selectedSize,
+        sugarLevel: selectedSugar,
+        quantity: quantity,
       ),
-      duration: Duration(seconds: 2),
-      backgroundColor: Colors.orange, 
-    ),
-  );
-}
-
+    );
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Row(
+          children: [
+            // Icon(
+            //   Icons.shopping_cart_checkout,
+            //   color: Colors.white,
+            // ),
+            SizedBox(width: 8),
+            Text(
+              'Added to cart!',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.orange,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

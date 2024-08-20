@@ -17,75 +17,74 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = false;
 
   Widget _buildTextFormField({
-  required String label,
-  required IconData icon,
-  required bool isPassword,
-}) {
-  return TextFormField(
-    obscureText: isPassword && !_isPasswordVisible,
-    decoration: InputDecoration(
-      labelText: label,
-      labelStyle: TextStyle(
-        color: Theme.of(context).hintColor.withOpacity(0.7),
-      ),
-      prefixIcon: Icon(
-        icon,
-        color: Theme.of(context).colorScheme.primary,
-      ),
-      suffixIcon: isPassword
-          ? IconButton(
-              icon: Icon(
-                _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Theme.of(context).hintColor.withOpacity(0.7),
-              ),
-              onPressed: () {
-                setState(() {
-                  _isPasswordVisible = !_isPasswordVisible;
-                });
-              },
-            )
-          : null,
-      filled: true,
-      fillColor: Theme.of(context).colorScheme.surface.withOpacity(0.5),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+    required String label,
+    required IconData icon,
+    required bool isPassword,
+  }) {
+    return TextFormField(
+      obscureText: isPassword && !_isPasswordVisible,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: TextStyle(
+          color: Theme.of(context).hintColor.withOpacity(0.7),
         ),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(
+        prefixIcon: Icon(
+          icon,
           color: Theme.of(context).colorScheme.primary,
-          width: 2,
+        ),
+        suffixIcon: isPassword
+            ? IconButton(
+                icon: Icon(
+                  _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                  color: Theme.of(context).hintColor.withOpacity(0.7),
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+              )
+            : null,
+        filled: true,
+        fillColor: Theme.of(context).colorScheme.surface.withOpacity(0.5),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+            width: 2,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 2,
+          ),
         ),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(
-          color: Colors.redAccent,
-        ),
+      style: TextStyle(
+        color: Theme.of(context).colorScheme.onSurface,
       ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(
-          color: Colors.redAccent,
-          width: 2,
-        ),
-      ),
-    ),
-    style: TextStyle(
-      color: Theme.of(context).colorScheme.onSurface,
-    ),
-    validator: (value) {
-      if (value == null || value.isEmpty) {
-        return 'Please enter your $label';
-      }
-      return null;
-    },
-  );
-}
-
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your $label';
+        }
+        return null;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -185,7 +184,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterScreen()),
                       (Route<dynamic> route) => false,
                     );
                   },

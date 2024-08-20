@@ -9,7 +9,8 @@ class PaySplashScreen extends StatefulWidget {
   _PaySplashScreenState createState() => _PaySplashScreenState();
 }
 
-class _PaySplashScreenState extends State<PaySplashScreen> with SingleTickerProviderStateMixin {
+class _PaySplashScreenState extends State<PaySplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
 

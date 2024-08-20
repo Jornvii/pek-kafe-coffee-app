@@ -22,7 +22,8 @@ class CartScreen extends StatelessWidget {
               'Your Order',
               style: theme.textTheme.titleLarge?.copyWith(
                 color: colorScheme.onPrimary,
-              ),),
+              ),
+            ),
             Column(
               children: [
                 Image.network(

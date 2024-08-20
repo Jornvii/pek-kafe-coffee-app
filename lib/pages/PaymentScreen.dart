@@ -79,7 +79,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const PaySplashScreen()),
+                                  builder: (context) =>
+                                      const PaySplashScreen()),
                               (Route<dynamic> route) => false,
                             );
                           },
