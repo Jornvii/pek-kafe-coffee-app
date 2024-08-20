@@ -1,4 +1,4 @@
-import 'package:coffee_order_app/pages/drink_detail_screen.dart';
+import 'package:coffee_order_app/pages/Detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class DrinkCard extends StatelessWidget {

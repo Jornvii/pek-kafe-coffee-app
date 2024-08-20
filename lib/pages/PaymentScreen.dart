@@ -1,5 +1,5 @@
 import 'package:coffee_order_app/models/CartItem.dart';
-import 'package:coffee_order_app/pages/PaySplashScreen.dart';
+import 'package:coffee_order_app/screens/PaySplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

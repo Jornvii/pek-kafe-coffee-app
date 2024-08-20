@@ -1,7 +1,7 @@
 import 'package:coffee_order_app/models/CartItem.dart';
-import 'package:coffee_order_app/pages/HomePage.dart';
-import 'package:coffee_order_app/pages/Profile_Nav.dart';
-import 'package:coffee_order_app/pages/cart_screen.dart';
+import 'package:coffee_order_app/screens/CartScreen.dart';
+import 'package:coffee_order_app/screens/HomeScreen.dart';
+import 'package:coffee_order_app/screens/ProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

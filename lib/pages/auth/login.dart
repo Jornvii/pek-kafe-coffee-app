@@ -1,5 +1,5 @@
-import 'package:coffee_order_app/pages/SplashScreen.dart';
 import 'package:coffee_order_app/pages/auth/register_screen.dart';
+import 'package:coffee_order_app/screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
