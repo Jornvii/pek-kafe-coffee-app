@@ -26,8 +26,8 @@ class CartScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Image.network(
-                  'https://cdn.bio.link/uploads/profile_pictures/2021-10-05/jXxjMGd03YlgKnrAU6zDQlV78F6tAo1o.png',
+                Image.asset(
+                  'assets/images/logo.png',
                   height: 30.0, // Adjust the height as needed
                 ),
                 const SizedBox(width: 10.0),
@@ -131,6 +131,15 @@ class CartScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: cart.items.isEmpty
               ? null
+
+
+
+
+
+
+
+
+              
               : () {
                   Navigator.push(
                     context,

@@ -15,7 +15,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Example values for subtotal, taxes, and total
+    //  values for subtotal, taxes, and total
     final double subtotal = 15.00;
     final double taxes = 1.50;
     final double total = subtotal + taxes;

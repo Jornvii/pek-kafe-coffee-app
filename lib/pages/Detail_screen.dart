@@ -28,24 +28,25 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
 
   void _addToCart() {
     final cart = Provider.of<CartModel>(context, listen: false);
-    cart.addItem(
-      CartItem(
-        title: widget.title,
-        imageUrl: widget.imageUrl,
-        price: widget.price,
-        size: selectedSize,
-        sugarLevel: selectedSugar,
-        quantity: quantity,
-      ),
+    final cartItem = CartItem(
+      title: widget.title,
+      imageUrl: widget.imageUrl,
+      price: widget.price,
+      size: selectedSize,
+      sugarLevel: selectedSugar,
+      quantity: quantity,
     );
+
+    cart.addItem(cartItem);
+
+    
+    print(
+        'Added to cart:\n ${cartItem.title}, ${cartItem.size}, ${cartItem.sugarLevel}%, Quantity: ${cartItem.quantity}');
+
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Row(
           children: [
-            // Icon(
-            //   Icons.shopping_cart_checkout,
-            //   color: Colors.white,
-            // ),
             SizedBox(width: 8),
             Text(
               'Added to cart!',

@@ -1,4 +1,4 @@
-import 'package:coffee_order_app/pages/mainscreen.dart';
+import 'package:coffee_order_app/screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
